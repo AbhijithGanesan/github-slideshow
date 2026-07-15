@@ -41,17 +41,38 @@
 
 <!-- Fontawesome -->
 <script type="text/javascript">
-  $(document).ready(function() {
-    //$("a[href*='youtube.com/']").prepend( $( "<i class='fa fa-youtube-play'>&nbsp;</i>" ) );
-    //$("a[href*='vimeo.com/']").prepend( $( "<i class='fa fa-vimeo-square'>&nbsp;</i>" ) );
-    //$("a[href$='/download']").prepend( $( "<i class='fa fa-cloud-download'>&nbsp;</i>" ) );
-    //$("a.download").prepend( $( "<i class='fa fa-cloud-download'>&nbsp;</i>" ) );
-    $("a.external").append( $( "<i class='fa fa-external-link'></i>" ) );
-    $("a.twitter").append( $( "<i class='fa fa-twitter'></i>" ) );
-    $("a.github").append( $( "<i class='fa fa-github'></i>" ) );
-    $("blockquote").prepend( $( "<i class='fa fa-quote-left'></i>" ) );
-    $("a.button.lighter").click( function() { $("html.dark").removeClass("dark").addClass("light"); });
-    $("a.button.darker").click( function() { $("html.light").removeClass("light").addClass("dark"); });
+  document.addEventListener("DOMContentLoaded", function() {
+    var appendIcon = function(selector, iconClass) {
+      document.querySelectorAll(selector).forEach(function(element) {
+        element.insertAdjacentHTML("beforeend", "<i class='fa " + iconClass + "'></i>");
+      });
+    };
+
+    appendIcon("a.external", "fa-external-link");
+    appendIcon("a.twitter", "fa-twitter");
+    appendIcon("a.github", "fa-github");
+
+    document.querySelectorAll("blockquote").forEach(function(element) {
+      element.insertAdjacentHTML("afterbegin", "<i class='fa fa-quote-left'></i>");
+    });
+
+    document.querySelectorAll("a.button.lighter").forEach(function(element) {
+      element.addEventListener("click", function() {
+        document.querySelectorAll("html.dark").forEach(function(htmlEl) {
+          htmlEl.classList.remove("dark");
+          htmlEl.classList.add("light");
+        });
+      });
+    });
+
+    document.querySelectorAll("a.button.darker").forEach(function(element) {
+      element.addEventListener("click", function() {
+        document.querySelectorAll("html.light").forEach(function(htmlEl) {
+          htmlEl.classList.remove("light");
+          htmlEl.classList.add("dark");
+        });
+      });
+    });
   });
 </script>
 <!-- End Fontawesome -->

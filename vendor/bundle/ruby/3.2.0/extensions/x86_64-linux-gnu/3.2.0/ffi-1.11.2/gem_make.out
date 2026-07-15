@@ -1,0 +1,121 @@
+current directory: /home/runner/work/github-slideshow/github-slideshow/vendor/bundle/ruby/3.2.0/gems/ffi-1.11.2/ext/ffi_c
+/usr/bin/ruby3.2 -I/usr/lib/ruby/vendor_ruby extconf.rb
+checking for ffi_call() in -lffi... yes
+checking for ffi_closure_alloc()... yes
+checking for shlwapi.h... no
+checking for rb_thread_call_without_gvl()... yes
+checking for ruby_native_thread_p()... yes
+checking for ruby_thread_has_gvl_p()... yes
+checking for ffi_prep_cif_var()... yes
+checking for ffi_raw_call()... yes
+checking for ffi_prep_raw_closure()... yes
+creating extconf.h
+creating Makefile
+
+current directory: /home/runner/work/github-slideshow/github-slideshow/vendor/bundle/ruby/3.2.0/gems/ffi-1.11.2/ext/ffi_c
+make DESTDIR\= sitearchdir\=./.gem.20260715-3720-9pizzf sitelibdir\=./.gem.20260715-3720-9pizzf clean
+
+current directory: /home/runner/work/github-slideshow/github-slideshow/vendor/bundle/ruby/3.2.0/gems/ffi-1.11.2/ext/ffi_c
+make DESTDIR\= sitearchdir\=./.gem.20260715-3720-9pizzf sitelibdir\=./.gem.20260715-3720-9pizzf
+compiling AbstractMemory.c
+AbstractMemory.c: In function ‘memory_get_string’:
+AbstractMemory.c:420:12: warning: implicit declaration of function ‘rb_tainted_str_new’; did you mean ‘rb_utf8_str_new’? [-Wimplicit-function-declaration]
+  420 |     return rb_tainted_str_new((char *) ptr->address + off,
+      |            ^~~~~~~~~~~~~~~~~~
+      |            rb_utf8_str_new
+AbstractMemory.c: In function ‘memory_get_array_of_string’:
+AbstractMemory.c:456:58: warning: implicit declaration of function ‘rb_tainted_str_new2’; did you mean ‘rb_utf8_str_new’? [-Wimplicit-function-declaration]
+  456 |             rb_ary_push(retVal, (strptr == NULL ? Qnil : rb_tainted_str_new2(strptr)));
+      |                                                          ^~~~~~~~~~~~~~~~~~~
+      |                                                          rb_utf8_str_new
+AbstractMemory.c: In function ‘memory_put_bytes’:
+AbstractMemory.c:586:9: warning: implicit declaration of function ‘rb_safe_level’ [-Wimplicit-function-declaration]
+  586 |     if (rb_safe_level() >= 1 && OBJ_TAINTED(str)) {
+      |         ^~~~~~~~~~~~~
+AbstractMemory.c:586:5: warning: ‘RB_OBJ_TAINTED’ is deprecated: taintedness turned out to be a wrong idea. [-Wdeprecated-declarations]
+  586 |     if (rb_safe_level() >= 1 && OBJ_TAINTED(str)) {
+      |     ^~
+In file included from /usr/include/ruby-3.2.0/ruby/internal/core/rstring.h:30,
+                 from /usr/include/ruby-3.2.0/ruby/internal/arithmetic/char.h:29,
+                 from /usr/include/ruby-3.2.0/ruby/internal/arithmetic.h:24,
+                 from /usr/include/ruby-3.2.0/ruby/ruby.h:28,
+                 from /usr/include/ruby-3.2.0/ruby.h:38,
+                 from AbstractMemory.c:43:
+/usr/include/ruby-3.2.0/ruby/internal/fl_type.h:118:30: note: declared here
+  118 | #define RB_OBJ_TAINTED       RB_OBJ_TAINTED
+      |                              ^~~~~~~~~~~~~~
+/usr/include/ruby-3.2.0/ruby/internal/fl_type.h:822:1: note: in expansion of macro ‘RB_OBJ_TAINTED’
+  822 | RB_OBJ_TAINTED(VALUE obj)
+      | ^~~~~~~~~~~~~~
+compiling ArrayType.c
+compiling Buffer.c
+compiling Call.c
+Call.c: In function ‘rbffi_SetupCallParams’:
+Call.c:301:25: warning: implicit declaration of function ‘rb_safe_level’ [-Wimplicit-function-declaration]
+  301 |                     if (rb_safe_level() >= 1 && OBJ_TAINTED(argv[argidx])) {
+      |                         ^~~~~~~~~~~~~
+Call.c:301:21: warning: ‘RB_OBJ_TAINTED’ is deprecated: taintedness turned out to be a wrong idea. [-Wdeprecated-declarations]
+  301 |                     if (rb_safe_level() >= 1 && OBJ_TAINTED(argv[argidx])) {
+      |                     ^~
+In file included from /usr/include/ruby-3.2.0/ruby/internal/core/rstring.h:30,
+                 from /usr/include/ruby-3.2.0/ruby/internal/arithmetic/char.h:29,
+                 from /usr/include/ruby-3.2.0/ruby/internal/arithmetic.h:24,
+                 from /usr/include/ruby-3.2.0/ruby/ruby.h:28,
+                 from /usr/include/ruby-3.2.0/ruby.h:38,
+                 from Call.c:45:
+/usr/include/ruby-3.2.0/ruby/internal/fl_type.h:118:30: note: declared here
+  118 | #define RB_OBJ_TAINTED       RB_OBJ_TAINTED
+      |                              ^~~~~~~~~~~~~~
+/usr/include/ruby-3.2.0/ruby/internal/fl_type.h:822:1: note: in expansion of macro ‘RB_OBJ_TAINTED’
+  822 | RB_OBJ_TAINTED(VALUE obj)
+      | ^~~~~~~~~~~~~~
+compiling ClosurePool.c
+compiling DynamicLibrary.c
+DynamicLibrary.c: In function ‘library_dlerror’:
+DynamicLibrary.c:167:12: warning: implicit declaration of function ‘rb_tainted_str_new2’; did you mean ‘rb_utf8_str_new’? [-Wimplicit-function-declaration]
+  167 |     return rb_tainted_str_new2(errmsg);
+      |            ^~~~~~~~~~~~~~~~~~~
+      |            rb_utf8_str_new
+compiling Function.c
+Function.c: In function ‘invoke_callback’:
+Function.c:727:62: warning: implicit declaration of function ‘rb_tainted_str_new2’; did you mean ‘rb_utf8_str_new’? [-Wimplicit-function-declaration]
+  727 |                 param = (*(void **) parameters[i] != NULL) ? rb_tainted_str_new2(*(char **) parameters[i]) : Qnil;
+      |                                                              ^~~~~~~~~~~~~~~~~~~
+      |                                                              rb_utf8_str_new
+Function.c: In function ‘callback_prep’:
+Function.c:867:5: warning: ‘ffi_prep_closure’ is deprecated: use ffi_prep_closure_loc instead [-Wdeprecated-declarations]
+  867 |     ffiStatus = ffi_prep_closure(code, &fnInfo->ffi_cif, callback_invoke, closure);
+      |     ^~~~~~~~~
+In file included from Function.c:52:
+/usr/include/x86_64-linux-gnu/ffi.h:356:1: note: declared here
+  356 | ffi_prep_closure (ffi_closure*,
+      | ^~~~~~~~~~~~~~~~
+compiling FunctionInfo.c
+compiling LastError.c
+compiling LongDouble.c
+compiling MappedType.c
+compiling MemoryPointer.c
+compiling MethodHandle.c
+compiling Platform.c
+compiling Pointer.c
+compiling Struct.c
+compiling StructByValue.c
+compiling StructLayout.c
+compiling Thread.c
+compiling Type.c
+compiling Types.c
+Types.c: In function ‘rbffi_NativeValue_ToRuby’:
+Types.c:83:47: warning: implicit declaration of function ‘rb_tainted_str_new2’; did you mean ‘rb_utf8_str_new’? [-Wimplicit-function-declaration]
+   83 |             return (*(void **) ptr != NULL) ? rb_tainted_str_new2(*(char **) ptr) : Qnil;
+      |                                               ^~~~~~~~~~~~~~~~~~~
+      |                                               rb_utf8_str_new
+compiling Variadic.c
+compiling ffi.c
+linking shared-object ffi_c.so
+
+current directory: /home/runner/work/github-slideshow/github-slideshow/vendor/bundle/ruby/3.2.0/gems/ffi-1.11.2/ext/ffi_c
+make DESTDIR\= sitearchdir\=./.gem.20260715-3720-9pizzf sitelibdir\=./.gem.20260715-3720-9pizzf install
+/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20260715-3720-9pizzf
+
+current directory: /home/runner/work/github-slideshow/github-slideshow/vendor/bundle/ruby/3.2.0/gems/ffi-1.11.2/ext/ffi_c
+make DESTDIR\= sitearchdir\=./.gem.20260715-3720-9pizzf sitelibdir\=./.gem.20260715-3720-9pizzf clean
